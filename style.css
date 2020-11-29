@@ -1,0 +1,690 @@
+
+body, html {
+  height: 90%;
+  width: 90%;
+  font-family: Arial;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+button {
+  width: 100%;
+  border: 2px solid #3F779A;
+}
+
+a {
+  color:#fcf4a5;
+}
+
+.content{
+  color: black;
+  display: none;
+  padding: 100px 20px 0px;
+  height: 100%;
+
+}
+
+/* All style in navigation */
+#backgroundmusic{
+  display:none;
+}
+
+#logo{
+  position: absolute;
+  margin-top: 1%;
+  margin-left: 13%;
+  height: 198px;
+  width: auto;
+}
+
+.navigationTab {
+  background-color: #fff;
+  color: #3F779A;
+  float: right;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  padding: 15px 17px;
+  outline: none;
+  font-size: 18px;
+  width: 15%;
+  font-weight: bolder;
+  border-radius: 4px;
+}
+
+.navigationTab:hover {
+  background-color: #e6eaee;
+}
+
+/* All style in home page*/
+#playButton{
+  font-weight: bolder;
+  position: absolute;
+  margin-top: 5vh;
+  margin-left: 90vw;
+  width: 100px;
+  height: 28px;
+  z-index: 10;
+  border-radius: 10px;
+  outline:none;
+  background:#b1c4e500;
+  cursor:pointer;
+}
+
+#home-logo{
+  z-index: 5;
+  position: relative;
+  top: 14%;
+  right: 31%;
+  height: 198px;
+  width: auto;
+}
+
+.bar{
+  height: 50vh;
+  width: 101vw;
+  background: linear-gradient(90deg, rgba(253,233,241,1) -6%, rgba(170,193,228,1) 100%);
+  margin-left: -22%;
+  margin-top: -12%;
+}
+
+.bar-button{
+  margin-top: 4%;
+  width: 70vw;
+}
+
+#Home{
+  text-align:center;
+  margin-left: 15%;
+  position: relative;
+
+}
+
+#Home p{
+  font-weight: 900;
+  width: 500px;
+  height: auto;
+  top: 16%;
+  position: absolute;
+  left: 34%;
+  font-size: 20px;
+  text-align: left;
+  line-height: 1.5;
+  color: white;
+}
+
+#homeBackground{
+  height: 53vh;
+  margin-top: -3%;
+  left: -280px;
+  position: absolute;
+}
+
+#symptomsNav{
+  margin-left: 2%;
+  height: 410px;
+  width: auto;
+  cursor: pointer;
+
+}
+#symptomsNav:hover{
+  background-color: #e6eaee;
+  border-radius: 10px;
+
+}
+
+#testingNav{
+  height: 410px;
+  width: auto;
+  cursor: pointer;
+  margin-left: 13%;
+  cursor: pointer;
+}
+
+#testingNav:hover{
+  background-color: #e6eaee;
+  border-radius: 10px;
+}
+
+#savedNav{
+  height: 410px;
+  width: auto;
+  cursor: pointer;
+  margin-left: 13%;
+  cursor: pointer;
+}
+#savedNav:hover{
+  background-color: #e6eaee;
+  border-radius: 10px;
+}
+
+/* All style in symptoms page*/
+.human-figure{
+  text-align: center;
+  margin-left: 35%;
+  margin-top: 3%;
+}
+
+#hunman{
+  position: relative;
+}
+
+.smallQuiz{
+  position: absolute;
+  display: none;
+  left: 850px;
+  top: 150px;
+  width: 375.19px;
+}
+
+#quizContent{
+    word-break: break-word;
+  background-color: #3F779A;
+    text-align: left;
+    padding: 5% 10% 5% 10%;
+    height: auto;
+    border-radius: 10px 10px 0 0px;
+    width: 300px;
+    line-height: 1.5;
+    margin-bottom: 2%;
+    color:white;
+    font-size: 16px;
+}
+
+#quizResult{
+  text-align: center;
+}
+
+.yes{
+  float: left;
+  margin-right: 1%;
+  color: white;
+  background-color: #3F779A;
+  height: 45px;
+  width: 49.5%;
+  border-radius: 0px 0px 0px 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+    font-size: 16px;
+}
+
+.yes:hover{
+  color:#3F779A;
+  background-color: white;
+  border: 2px solid #3F779A;
+}
+
+.no{
+  color: white;
+  background-color: #3F779A;
+  height: 45px;
+  width: 49.5%;
+  border-radius: 0px 0px 10px 0px;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+    font-size: 16px;
+}
+
+.no:hover{
+  color:#3F779A;
+  background-color: white;
+  border: 2px solid #3F779A;
+}
+
+.head{
+  z-index: 1;
+  position: relative;
+  left: -210px;
+  bottom: 711px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-image: url(./pictures/point.png);
+  background-size: cover;
+  cursor: pointer;
+}
+
+#headimg{
+  position: absolute;
+  display: none;
+}
+
+.head:hover{
+  background-image: url(./pictures/pointHover.png);
+  background-size: cover;
+}
+
+.mouth{
+  z-index: 1;
+  position: relative;
+  left: -280px;
+  bottom: 554px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-image: url(./pictures/point.png);
+  background-size: cover;
+  cursor: pointer;
+}
+
+#mouthimg{
+  position: absolute;
+  display: none;
+}
+
+.mouth:hover{
+  background-image: url(./pictures/pointHover.png);
+  background-size: cover;
+}
+
+.nose{
+  z-index: 1;
+  position: relative;
+  bottom: 640px;
+  left: -320px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-image: url(./pictures/point.png);
+  background-size: cover;
+  cursor: pointer;
+}
+
+#noseimg{
+  position: absolute;
+  display: none;
+}
+
+.nose:hover{
+  background-image: url(./pictures/pointHover.png);
+  background-size: cover;
+}
+
+.arm{
+  z-index: 1;
+  position: relative;
+  left: -200px;
+  bottom: 470px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-image: url(./pictures/point.png);
+  background-size: cover;
+  cursor: pointer;
+}
+
+#armimg{
+  position: absolute;
+  display: none;
+}
+
+.arm:hover{
+  background-image: url(./pictures/pointHover.png);
+  background-size: cover;
+}
+
+.stomach{
+  position: relative;
+  bottom: 260px;
+  left: -340px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-image: url(./pictures/point.png);
+  background-size: cover;
+  cursor: pointer;
+}
+
+#stomachimg{
+  position: absolute;
+  display: none;
+}
+
+.stomach:hover{
+  background-image: url(./pictures/pointHover.png);
+  background-size: cover;
+}
+#symptomTutorial{
+  display: inline;
+}
+
+#symptomsHintButton{
+  background:#00000000;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-left: 91vw;
+}
+
+#symptomsHintButton a{
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+#finishQuiz{
+  display: none;
+}
+
+#symptomSaveSucess{
+  display: none;
+}
+
+/* All style in testing page*/
+#Testing{
+  margin-left: 25%;
+}
+
+#testingTutorial{
+  display: inline;
+}
+
+.slide-container{
+  background-color: #3F779A;
+  height: 350px;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+  line-height: 1.25;
+}
+
+.slide-container-nav{
+  border-radius: 10px;
+
+}
+
+.slide-container p {
+  margin-top: 10px;
+  margin-left: 14%;
+  margin-right: 14%;
+}
+
+.slide-container-nav p{
+  background: #3F779A;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  height: 120px;
+  margin: 12px;
+  padding: 5%;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.slide-container1{
+  background-color: #3F779A;
+  height: 350px;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+  line-height: 1.25;
+}
+
+.slide-container-nav1{
+  border-radius: 10px;
+
+}
+.slide-container1 p {
+  margin-top: 10px;
+  margin-left: 14%;
+  margin-right: 14%;
+}
+.slide-container-nav1 p{
+  background: #3F779A;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  height: 120px;
+  margin: 12px;
+  padding: 5%;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.slide-container2{
+  background-color: #3F779A;
+
+  height: 350px;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+  line-height: 1.25;
+}
+
+.slide-container-nav2{
+  border-radius: 10px;
+
+}
+
+.slide-container2 p {
+  margin-top: 10px;
+  margin-left: 14%;
+  margin-right: 14%;
+}
+
+.slide-container-nav2 p{
+  background: #3F779A;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  height: 120px;
+  margin: 12px;
+  padding: 5%;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.icon{
+  position: fixed;
+  width: auto;
+  height: 50%;
+  margin-left: 2%;
+}
+.icon1{
+  margin-left: 3%;
+  position: fixed;
+  width: auto;
+  height: 50%;
+}
+
+.icon2{
+  margin-left: 1%;
+  position: fixed;
+  width: auto;
+  height: 50%;
+}
+
+#testingSaveButton{
+  text-align: center;
+}
+
+#testingSaveButton button {
+  margin-top: 1%;
+  margin-right: 1%;
+  z-index: 3;
+  position: relative;
+  color: white;
+  background: #3F779A;
+  outline:none;
+  border-radius: 0px 0px 10px 10px;
+  height: 40px;
+  text-align: center;
+  font-weight:bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing:1px;
+  text-shadow:0;
+  font-size: 20px;
+
+}
+
+#testingSaveButton button::after{
+  content:"Save";
+}
+
+
+#testingSaveButton button:hover{
+  color: #3F779A;
+  background: white;
+}
+
+.clicked {
+  text-align: center;
+  margin-top: 1%;
+  margin-right: 1%;
+  z-index: 3;
+  position: relative;
+  width: 40px;
+  border-color:white;
+  border-width:3px;
+  font-size:0;
+  border-left-color:#3F779A;
+  animation: rotating 2s 0.25s linear infinite;
+}
+
+#testingSaveButton .clicked::after{
+  content:"";
+}
+
+#testingSaveButton .saving {
+  font-size:20px;
+  color: #3F779A;
+  background: white;
+}
+
+#testingSaveButton .saving::after {
+  content:"Done";
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#title{
+  text-align: center;
+  margin-top: 10%;
+  color: #3F779A;
+  font-size: 30px;
+}
+
+#title1{
+  text-align: center;
+  color: #3F779A;
+  font-size: 30px;
+}
+
+#subTitle{
+  text-align: center;
+}
+
+#Source{
+  text-align:left;
+}
+
+#testingHintButton{
+  background:#00000000;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-left: 70.75%;
+}
+
+#testingHintButton a{
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+#backToTopButton{
+  background: #00000000;
+  position: fixed;
+  width: 60px;
+  top: 85%;
+  height: 60px;
+  border-radius: 55px;
+  margin-left: 69.3%;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* All style in saved page*/
+.symptomsSaved{
+  height: 40vh;
+  width: 70VW;
+  margin-left:15%;
+}
+
+.testingSaved{
+  float: left;
+  height: 40vh;
+  width: 70VW;
+  margin-left:15%;
+}
+.symptomCards{
+  display: block;
+}
+
+.testingCards{
+  display: block;
+}
+
+#savedcard{
+  overflow: auto;
+  word-break: break-word;
+  background-color: #3F779A;
+  text-align: left;
+  padding: 5% 3% 5% 3%;
+  height: auto;
+  border-radius: 10px;
+  margin-left: 2%;
+  width: 24%;
+  height: 300px;
+  float: left;
+  line-height: 1.5;
+  margin-bottom: 2%;
+  color: white;
+  font-size: 15px;
+}
+
+#savedcard::-webkit-scrollbar {
+	width: 1px;
+
+}
+
+#savedcard::-webkit-scrollbar-track {
+	background-color: #ffffff00;
+
+}
+
+.symptomsSaved{
+  color: #3F779A;
+}
+
+.testingSaved{
+  color: #3F779A;
+}
+
+#noSavedTestingCards{
+  color: #aaaa;
+}
+#noSavedSymptomCards{
+  color: #aaaa;
+}

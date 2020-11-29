@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DM Pass</title>
+    <!-- import all needed css files-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" href="dist/remodal.css">
+    <link rel="stylesheet" href="dist/remodal-default-theme.css">
+  </head>
+
+  <!--Make body into two sections,navigation and content-->
+  <body>
+    <!--Navigation tabs section-->
+    <section class="navigation-container">
+      <a name="backToTop"></a>
+      <div>
+        <!--DM Pass log-->
+        <img id="logo" src="pictures/logo.png">
+        <!--Background music-->
+        <button id="playButton" onclick="play()">▶</button>
+        <audio id="backgroundmusic" src="music/backgroundmusic.mp3" loop="true" controls autoplay></audio>
+        <!-- Four tabs -->
+        <button class="navigationTab" onclick="currentPage('Saved',this)" > Saved</button>
+        <button class="navigationTab" id="testingPage" onclick="currentPage('Testing',this)" >Testing</button>
+        <button class="navigationTab" onclick="currentPage('Symptoms',this)" >Symptoms</button>
+        <button class="navigationTab" onclick="currentPage('Home',this)" id="activePage">Home</button>
+      </div>
+    </section>
+
+    <!--Content of the four tabs section-->
+    <section class="content-container">
+      <!--Home tab content area-->
+      <div id="Home" class="content">
+        <!--Create the  bar-->
+        <div class="bar">
+          <img id="home-logo" src="pictures/logo.png">
+          <img  id="homeBackground" src="pictures/HomeBackground1.png">
+          <p>A proper coronavirus well-being support service that provides information for our community to be covidsafe together</p>
+        </div>
+        <!--Create the three home navigation buttons-->
+        <div class="bar-button">
+          <img id="symptomsNav" src="pictures/symptom.png" onclick="homePageNavigation('Symptoms',this)">
+          <img id="testingNav" src="pictures/testing.png" onclick="homePageNavigation('Testing',this)">
+          <img id="savedNav" src="pictures/saved.png" onclick="homePageNavigation('Saved',this)">
+        </div>
+      </div>
+
+      <!--Symptoms tab content area-->
+      <div id="Symptoms" class="content">
+        <!--Pop up window for symptom page tutorial-->
+        <div class="remodal" data-remodal-id="smTutorial">
+          <h1>Symptoms tutorial</h1>
+          <p>Click on an area of the figure to explore the symptoms</p>
+          <p>(Hint: According to CDC, a person can develop at least 5 symptoms of COVID-19)</p>
+          <br>
+          <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+        </div>
+        <button id="symptomsHintButton"><a id= "symptomTutorial" href="#smTutorial">?</a></button>
+
+        <!--Pop up window for message after done all quizzes-->
+        <div class="remodal" data-remodal-id="fQuiz">
+          <h1>Congratulation!</h1>
+          <img src="pictures/conguration.gif" height=200px></img>
+          <p>You have finished all quizzes</p>
+          <br>
+          <button data-remodal-action="confirm" class="remodal-confirm" onclick="jumpToTesting()">Go to testing page</button>
+        </div>
+        <a id= "finishQuiz" href="#fQuiz"> </a>
+
+        <!--Pop up window for symptom content saved successfully-->
+        <div class="remodal" data-remodal-id="save-success">
+          <h1>Save success</h1>
+          <br>
+          <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+        </div>
+        <a id="symptomSaveSucess" href="#save-success">save</a>
+
+        <!--Hunman figure-->
+        <div class="human-figure">
+          <!--All symptoms images-->
+          <img id="headimg" src="pictures/head.png" height="750px" width=auto>
+          <img id="armimg" src="pictures/arm.png" height="750px" width=auto>
+          <img id="mouthimg" src="pictures/mouth.png" height="750px" width=auto>
+          <img id="noseimg" src="pictures/nose.png" height="750px" width=auto>
+          <img id="stomachimg" src="pictures/stomach.png" height="750px" width=auto>
+          <img id="human" src="pictures/human.png" height="750px" width=auto>
+          <!--All symptoms buttons-->
+          <button class='head' onclick="quiz('head', this)"></button>
+          <button class='nose' onclick="quiz('nose', this)"></button>
+          <button class='mouth'onclick="quiz('mouth', this)"></button>
+          <button class='arm' onclick="quiz('arm', this)"></button>
+          <button class='stomach' onclick="quiz('stomach', this)"></button>
+        </div>
+
+        <!--Quiz content-->
+        <div class="smallQuiz">
+          <div id="quizContent">
+          <p id="quizResult"></p>
+          <p id="QuizContent"></p>
+          <p id="quizContentSource"></p>
+          <p id="link"><a id="sourceHref" href="" target="_blank"></a></p>
+          </div>
+          <!--Interaction buttons for quiz-->
+          <button class="yes" href="#modal" onclick="buttonChange('yes')">Yes</button>
+          <button class="no" onclick="buttonChange('no')">No</button>
+        </div>
+      </div>
+
+      <!--Testing tab content area-->
+      <div id="Testing" class="content">
+        <!--Pop up window for hint button-->
+        <div class="remodal" data-remodal-id="TT">
+          <h1>Testing tutorial</h1>
+          <p>
+            Click on each slide to understand more informaiton about how to get tested
+          </p>
+          <br>
+          <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+        </div>
+        <button id="testingHintButton"><a id= "testingTutorial" href="#TT">?</a></button>
+
+        <!--Generate the pretesting slideshow-->
+        <div class="pretesting">
+          <h1 id="title1">Before the test</h1>
+
+          <!--Pretesting slideshow-->
+          <div class="slide-container">
+            <div class="slide" id="0">
+              <h1 id=subTitle>When should I get tested?</h1>
+              <p>If you have cold or flu like symptoms, such as a cough, fever, sore throat, shortness of breath or runny nose, even if these are mild, you should get tested for COVID-19 as soon as possible. People with mild symptoms can still spread the virus. To help stop the spread of COVID-19, anyone with cold or flu-like symptoms should get tested.</p>
+              <p>Source:
+              <br><a href="https://www.webmd.com/lung/covid-19-symptoms?fbclid=IwAR2rqF_m579_y_fbLa-TgjBMiin_pNZ8lynBdubtP0p0gAl8tybbBfJjkvk#1-2" target="_blank">https://www.webmd.com/lung/covid-19-symptoms?fbclid=IwAR2rqF_m579_y_fbLa-TgjBMiin_pNZ8lynBdubtP0p0gAl8tybbBfJjkvk#1-2</a></p>
+            </div>
+
+            <div class="preTestingSlide" id="1">
+              <h1 id="subTitle">Where to get tested?</h1>
+              <p>You can get tested in different places,
+                <br>such as:
+                <br> ‣ At a hospital
+                <br> ‣ In your car at a drive through clinic
+                <br> ‣ At your local doctor’s office
+                <br> ‣ At a COVID-19 clinic
+                <br> ‣ Find the clinic near you from the NSW health website:
+                <br><a href="https://www.health.nsw.gov.au/Infectious/covid-19/Pages/clinics.aspx" target="_blank">https://www.health.nsw.gov.au/Infectious/covid-19/Pages/clinics.aspx</a>
+              </p>
+              <p>Source:
+                <br><a href="https://www.health.nsw.gov.au/disability/covid-19/Documents/getting-tested-for-covid-19.PDF" target="_blank"> https://www.health.nsw.gov.au/disability/covid-19/Documents/getting-tested-for-covid-19.PDF</a>
+              </p>
+            </div>
+
+            <div class="preTestingSlide" id="2">
+              <h1 id="subTitle">What items should be brought when getting tested?</h1>
+              <p>You need to bring your Medicare card and the details of your usual General Practitioner (GP) and/or GP practice, if you have one.</p>
+              <p>If you don’t have a Medicare card then bring one form of identification, such as your driver’s licence or student ID.</p>
+              <p>Source:
+                <br><a href="https://www.dhhs.vic.gov.au/taking-test-covid-19#is-the-test-free" target="_blank">https://www.dhhs.vic.gov.au/taking-test-covid-19#is-the-test-free</a>
+              </p>
+            </div>
+
+            <div class="preTestingSlide" id="3">
+              <h1 id="subTitle">Is the test free?</h1>
+              <p>The coronavirus (COVID-19) test is free when you get tested at:
+                <br> ‣ NSW Health public hospital emergency department
+                <br> ‣ NSW Health public COVID-19 clinic
+                <br> ‣ Australian Government GP respiratory clinic
+                <br> ‣ Private testing collection service
+                <br><br>However, the GP charges may apply if you visit a GP for a referral
+              </p>
+              <p>Source:
+                <br><a href="https://www.health.nsw.gov.au/Infectious/covid-19/Pages/attending-a-clinic.aspx" target="_blank">https://www.health.nsw.gov.au/Infectious/covid-19/Pages/attending-a-clinic.aspx</a>
+              </p>
+            </div>
+          </div>
+
+          <!--Create save button under the pretesting slideshow-->
+          <div id="testingSaveButton">
+          <button class="saveButton" id="pretesting" onclick="slideContentSave('pretesting')"></button>
+          </div>
+
+          <!--Create the pretesting slideshow navigation-->
+          <div class="slide-container-nav">
+            <div><p>When should I get tested?<br><br><img align="middle" class="icon" src="pictures/time.png"></p></div>
+            <div><p>Where to get tested?<br><br><img align="middle" class="icon" src="pictures/location.png"></p></div>
+            <div><p>What items should be brought?<br><br><img align="middle" class="icon2"  src="pictures/items.png"></p></div>
+            <div><p>Is the test free?<br><br><img align="middle" class="icon" src="pictures/fee.png"></p></div>
+          </div>
+        </div>
+
+        <!--Generate the during the test slideshow-->
+        <div class="duringTheTest">
+          <h1 id="title">During the test</h1>
+
+          <!--During the test slideshow-->
+          <div class="slide-container1">
+            <div id="4">
+              <h1 id=subTitle>What does testing involve?</h1>
+              <p>Testing for COVID-19 involves inserting a 6-inch long swab (like a long Q-tip) into the cavity between the nose and mouth (nasopharyngeal swab) for 15 seconds and rotating it several times. The swabbing is then repeated on the other side of the nose to make sure enough material is collected. The swab is then inserted into a container and sent to a lab for testing.</p>
+              <p>Source:
+                <br><a href="https://health.ucdavis.edu/coronavirus/coronavirus-testing.html" target="_blank"> https://health.ucdavis.edu/coronavirus/coronavirus-testing.html</a>
+              </p>
+            </div>
+
+            <div id="5">
+              <h1 id="subTitle">Who can perform tests?</h1>
+              <p>At testing sites, test samples will be taken by a trained healthcare worker, usually a doctor or nurse.</p>
+              <p>Source:
+                <br><a href="https://health.ucdavis.edu/coronavirus/coronavirus-testing.html" target="_blank"> https://health.ucdavis.edu/coronavirus/coronavirus-testing.html</a>
+              </p>
+            </div>
+
+            <div id="6">
+              <h1 id=subTitle>What does testing involve?</h1>
+              <p>Testing for COVID-19 involves inserting a 6-inch long swab (like a long Q-tip) into the cavity between the nose and mouth (nasopharyngeal swab) for 15 seconds and rotating it several times. The swabbing is then repeated on the other side of the nose to make sure enough material is collected. The swab is then inserted into a container and sent to a lab for testing.</p>
+              <p>Source:
+                <br><a href="https://health.ucdavis.edu/coronavirus/coronavirus-testing.html" target="_blank"> https://health.ucdavis.edu/coronavirus/coronavirus-testing.html</a>
+              </p>
+            </div>
+
+            <div id="7">
+              <h1 id="subTitle">Who can perform tests?</h1>
+              <p>At testing sites, test samples will be taken by a trained healthcare worker, usually a doctor or nurse.</p>
+              <p>Source:
+                <br><a href="https://health.ucdavis.edu/coronavirus/coronavirus-testing.html" target="_blank"> https://health.ucdavis.edu/coronavirus/coronavirus-testing.html</a>
+              </p>
+            </div>
+          </div>
+
+          <!--Create save button under the during the test slideshow-->
+          <div id="testingSaveButton">
+          <button class="saveButton" id="duringTheTest" onclick="slideContentSave('duringTheTest')"></button>
+          </div>
+
+          <!--Create the during the test slideshow navigation-->
+          <div class="slide-container-nav1">
+            <div><p>What does testing involve?<br><br><img class="icon1" src="pictures/test.png"></p></div>
+            <div><p>Who can perform tests?<br><br><img class="icon" src="pictures/person.png"></p></div>
+            <div><p>What does testing involve?<br><br><img class="icon1" src="pictures/test.png"></p></div>
+            <div><p>Who can perform tests?<br><br><img class="icon" src="pictures/person.png"></p></div>
+          </div>
+          </div>
+
+        <!--Generate the post test slideshow-->
+        <div class="post-test">
+          <h1 id="title">After the test</h1>
+
+          <!--Post test slideshow-->
+          <div class="slide-container2">
+            <div id="8">
+              <h1 id=subTitle>Quarantine and isolation</h1>
+              <p>After your test, you must return home immediately and stay at home until you receive your test result. You should not see anyone that doesn’t live with you while you are waiting for your test result (self-isolating). This is referred to as ‘self-isolating’. You must do this because there is a risk that you could have coronavirus (COVID-19) and infect other people.</p>
+              <p>Source:
+                <br><a href="https://www.dhhs.vic.gov.au/taking-test-covid-19#what-does-testing-involve" target="_blank">https://www.dhhs.vic.gov.au/taking-test-covid-19#what-does-testing-involve</a>
+              </p>
+            </div>
+
+            <div id="9">
+              <h1 id="subTitle">Test result</h1>
+              <p>Results typically take 24 to 72 hours. If you’ve been tested at a public hospital clinic or emergency department, you can also receive your result securely via:
+                <br> ‣ Your MyServiceNSW account
+                <br> ‣ A push notification, if you also have the Service NSW mobile app.
+              </p>
+              <p>Source:
+                <br><a href="https://www.nsw.gov.au/covid-19/how-to-protect-yourself-and-others/clinics#find-a-covid-19-testing-centre-in-nsw" target="_blank">https://www.nsw.gov.au/covid-19/how-to-protect-yourself-and-others/clinics#find-a-covid-19-testing-centre-in-nsw</a>
+              </p>
+            </div>
+
+            <div id="10">
+              <h1 id="subTitle">Quarantine and isolation</h1>
+              <p>After your test, you must return home immediately and stay at home until you receive your test result. You should not see anyone that doesn’t live with you while you are waiting for your test result (self-isolating). This is referred to as ‘self-isolating’. You must do this because there is a risk that you could have coronavirus (COVID-19) and infect other people.</p>
+              <p>Source:
+                <br><a href="https://www.dhhs.vic.gov.au/taking-test-covid-19#what-does-testing-involve" target="_blank">https://www.dhhs.vic.gov.au/taking-test-covid-19#what-does-testing-involve</a>
+              </p>
+            </div>
+
+            <div id="11">
+              <h1 id="subTitle">Test result</h1>
+              <p>Results typically take 24 to 72 hours. If you’ve been tested at a public hospital clinic or emergency department, you can also receive your result securely via:
+                <br> ‣ Your MyServiceNSW account
+                <br> ‣ A push notification, if you also have the Service NSW mobile app.
+              </p>
+              <p>Source:
+                <br><a href="https://www.nsw.gov.au/covid-19/how-to-protect-yourself-and-others/clinics#find-a-covid-19-testing-centre-in-nsw" target="_blank">https://www.nsw.gov.au/covid-19/how-to-protect-yourself-and-others/clinics#find-a-covid-19-testing-centre-in-nsw</a>
+              </p>
+            </div>
+          </div>
+
+          <!--Create the save button under the post test slideshow-->
+          <div id="testingSaveButton">
+          <button class="saveButton" id="post-test" onclick="slideContentSave('post-test')"></button>
+          </div>
+
+          <!--Create the post test slideshow navigation-->
+          <div class="slide-container-nav2">
+            <div><p>Quarantine and isolation<br><br><img class="icon" src="pictures/isolate.png"></p></div>
+            <div><p>Test result<br><br><img class="icon" src="pictures/result.png"></p></div>
+            <div><p>Quarantine and isolation<br><br><img class="icon" src="pictures/isolate.png"></p></div>
+            <div><p>Test result<br><br><img class="icon" src="pictures/result.png"></p></div>
+          </div>
+        </div>
+
+        <!--Create the back to top button when the user scroll down-->
+        <div>
+          <button id="backToTopButton" onclick="backToTop()">⬆</button>
+          <a id="back" href="#backToTop"></a>
+        </div>
+      </div>
+
+      <!--Saved tab content area-->
+      <div id="Saved" class="content">
+        <!--Saved cards from symptom page-->
+        <div class="symptomsSaved">
+          <h1>Symptoms</h1>
+          <p id="noSavedSymptomCards">You have nothing saved at the moment</p>
+          <div class="symptomCards">
+          </div>
+        </div>
+
+        <!--Saved cards from testing page-->
+        <div class="testingSaved">
+          <h1>Testing</h1>
+          <p id="noSavedTestingCards">You have nothing saved at the moment</p>
+          <div class="testingCards">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!--Link all needed javascript files-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="dist/remodal.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="A3.js"></script>
+  </body>
+</html>
